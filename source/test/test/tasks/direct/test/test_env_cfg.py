@@ -16,7 +16,7 @@ from isaaclab.utils import configclass
 class TestEnvCfg(DirectRLEnvCfg):
     # env
     decimation = 2
-    episode_length_s = 5.0
+    episode_length_s = 6.0
     # - spaces definition
     action_space = 1
     observation_space = 4
@@ -36,13 +36,19 @@ class TestEnvCfg(DirectRLEnvCfg):
     cart_dof_name = "slider_to_cart"
     pole_dof_name = "cart_to_pole"
     # - action scale
-    action_scale = 100.0  # [N]
+    action_scale = 80.0  # [N]
     # - reward scales
     rew_scale_alive = 1.0
     rew_scale_terminated = -2.0
-    rew_scale_pole_pos = -1.0
-    rew_scale_cart_vel = -0.01
-    rew_scale_pole_vel = -0.005
+    rew_scale_pole_pos = -0.9
+    rew_scale_cart_vel = -0.012
+    rew_scale_pole_vel = -0.012
+
+    rew_scale_cart_pos = -0.8
+    cart_pos_target = 0.0
+    cart_pos_deadzone = 0.0
+
+
     # - reset states/conditions
-    initial_pole_angle_range = [-0.25, 0.25]  # pole angle sample range on reset [rad]
+    initial_pole_angle_range = [-0.35, 0.35]  # pole angle sample range on reset [rad]
     max_cart_pos = 3.0  # reset if cart exceeds this position [m]
